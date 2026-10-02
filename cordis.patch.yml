@@ -1,0 +1,24 @@
+# ============================================================================
+# dsh-prompt-enhancer —— DSH bundle patch
+# ============================================================================
+# 这是插件的「挂载声明」：DSH 启动时按 bundle 层栈叠加各插件 patch，
+# 本文件把提示词增强器插入当前 profile 的配置树。
+#
+# 安装方式：
+#   从 GitHub 安装：
+#     dsh plugin --profile <profile> add "git+https://github.com/0518a/dsh-prompt-enhancer.git"
+#   本地开发安装（link）：
+#     dsh plugin --profile <profile> add link:<本目录绝对路径>
+#
+# 运行期默认值写在插件自己的 Config 边界里（见 lib/index.js），
+# 用户可以在 profile 的 patch 行里用同一个 id 覆盖：
+#   - id: dsh-prompt-enhancer
+#     config:
+#       provider: deepseek-official
+#       model: deepseek-v4-flash
+#       timeoutMs: 30000
+# ============================================================================
+
+- insert:
+    - id: dsh-prompt-enhancer
+      name: 'dsh-prompt-enhancer'

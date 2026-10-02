@@ -1,0 +1,12 @@
+# 依赖与生成物不入库
+node_modules/
+tools/verify/out/
+__pycache__/
+*.pyc
+*.log
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

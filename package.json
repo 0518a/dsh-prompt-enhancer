@@ -1,0 +1,54 @@
+{
+  "name": "dsh-prompt-enhancer",
+  "version": "1.5.1",
+  "description": "DSH Web 输入框提示词增强器：在输入框右下角提供一枚「叶子 + 闪耀」图标，一键在当前草稿的基础上润色成结构化提示词——只改写、不反问、不要求澄清，并支持「润色中 / 撤销回退」三态交互。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "prompt",
+    "prompt-enhancer",
+    "composer"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.19"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "external": []
+    }
+  },
+  "scripts": {
+    "test": "node tools/verify/test-host.mjs && node tools/verify/test-client.mjs && node tools/verify/test-icon.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4"
+  },
+  "license": "MIT"
+}
